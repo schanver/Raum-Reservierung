@@ -1,0 +1,11 @@
+#Image Files
+*.png
+*.jpg
+*.ico
+*.bmg
+
+# Text files
+credentials.txt
+*.pdf
+*.doc
+*.csv

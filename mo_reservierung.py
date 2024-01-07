@@ -94,7 +94,7 @@ def get_a_reservation():
             
             browser.implicitly_wait(2)
             browser.save_full_page_screenshot("raumreservierung.png")
-            print("Den Raum wird reserviert.")
+            print("Der Raum wird reserviert.")
             break
         finally:
             browser.quit()

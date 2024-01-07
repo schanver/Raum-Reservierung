@@ -89,7 +89,7 @@ def get_a_reservation():
                         attempts += 1
                         continue
             if attempts > 2:
-                print("Booking operation failed. Please try again")
+                print("Bei der Buchung ist etwas fehlgeschlagen. Bitte versuchen Sie es nochmal später.")
                 exit()
             
             browser.implicitly_wait(2)

@@ -1,6 +1,9 @@
+#!/bin/env/python3
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait, Select
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support.select import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support import expected_conditions as EC
 from datetime import datetime
@@ -14,11 +17,12 @@ def read_from_file():
             info.append(line.strip())
 
 def get_a_reservation():
+    read_from_file()
     username = info[0]
     password = info[1]
+    browser = webdriver.Firefox()
     while True:
         try:
-            browser = webdriver.Firefox()
             browser.get("https://saml2.cs.tu-dortmund.de/simplesaml/module.php/core/loginuserpass.php?AuthState=_09df7bb7f6e78e060d04f4d017e93dae9e16a08205%3Ahttps%3A%2F%2Fsaml2.cs.tu-dortmund.de%2Fsimplesaml%2Fsaml2%2Fidp%2FSSOService.php%3Fspentityid%3Dhttps%253A%252F%252Fraumadm.cs.tu-dortmund.de%252FRaumId%26RelayState%3D%252Fcont%252Fde%252Flernraum%252Fsaml2%252Fdologin.sh%26cookieTime%3D1703414214")
       
 
@@ -47,9 +51,9 @@ def get_a_reservation():
             today = datetime.now()
 
             time_block_xpaths = [
-    "//a[@title='Reservieren von Raum OH12/4.037 ab 13:00 Uhr']",
-    "//a[@title='Reservieren von Raum OH12/4.029 ab 13:00 Uhr']",
-    "//a[@title='Reservieren von Raum OH12/4.042 ab 13:00 Uhr']"
+    "//a[@title='Reservieren von Raum OH12/4.037 ab 14:00 Uhr']",
+    "//a[@title='Reservieren von Raum OH12/4.029 ab 14:00 Uhr']",
+    "//a[@title='Reservieren von Raum OH12/4.042 ab 14:00 Uhr']"
                                 ]
             attempts = 0
             if today.weekday() == 6: 
